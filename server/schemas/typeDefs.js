@@ -11,10 +11,10 @@ const typeDefs = gql`
 
   type Book {
     bookId: ID!
-    authors: String
-    description: String
+    authors: [String]
+    description: String!
     link: String
-    title: String
+    title: String!
 
   type Auth {
     token: ID!
