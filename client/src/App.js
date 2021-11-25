@@ -1,14 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { ApolloClient, ApolloProvider, InMemoryCache };
+import { ApolloClient, ApolloProvider, createHttpLink, InMemoryCache } from '@apollo/client'
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
-import setContext from '@apollo/client/link/context'
+import { setContext } from '@apollo/client/link/context';
+
 
 // GraphQL API endpoint construct
-const client = new ApolloClient({
+const httpLink = createHttpLink({
   uri: '/graphql',
   cache: new InMemoryCache(),
 });

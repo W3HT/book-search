@@ -13,7 +13,8 @@ const LoginForm = () => {
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-  // TODO: call the LOGIN_USER mutation; the response will be saved an an array. The first item in the array is the login variable, the second is a destructured error property
+ 
+  const [login,  {error, data }] = useMutation(LOGIN_USER);
 
   useEffect(() => {
     if (error) {
