@@ -13,8 +13,10 @@ const typeDefs = gql`
     bookId: ID!
     authors: [String]
     description: String!
+    image: String
     link: String
     title: String!
+  }
 
   type Auth {
     token: ID!
@@ -35,16 +37,12 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    loging(email: String!, password: String!)
+    login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     saveBook(bookData: BookInput!): User
     removeBook(bookId: ID!): User
   }
 
- 
-
-
-  }
 `;
 
 module.exports = typeDefs;
